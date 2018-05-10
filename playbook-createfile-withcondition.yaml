@@ -1,0 +1,9 @@
+---
+ - hosts: web
+  # gather_facts: no
+   tasks:
+    - name: Creating a file
+      file: path=/opt/verizon.txt state=touch
+      when:
+        - ansible_os_family == 'RedHat'
+        - ansible_architecture == "x86_64"

@@ -1,0 +1,6 @@
+---
+- name: Httpd server installation
+  yum: name=httpd state=present
+  
+- name: Start httpd Server after installation
+  service: name=httpd state=started

@@ -1,0 +1,9 @@
+---
+- hosts: web
+  roles:
+  - server-common
+  #sudo: yes
+  handlers:
+     - name: Restart Apache
+       service: name=httpd state=restarted
+

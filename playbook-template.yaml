@@ -1,0 +1,11 @@
+---
+ - hosts: web
+   vars:
+     user_name: Monkey king
+     variable: Money trial
+   tasks:
+    - template:
+        src: /opt/jenkins/index.j2
+        dest: /var/www/html/index.html
+        mode: 0644
+

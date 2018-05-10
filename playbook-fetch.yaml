@@ -1,0 +1,8 @@
+---
+ - hosts: web
+   tasks:
+    - fetch:
+        src: /var/www/test.properties
+        dest: /opt/jenkins/
+        flat: yes
+

@@ -1,0 +1,22 @@
+---
+ - hosts: web  
+  # vars:
+  #   http_port: 80
+  #   max_clients: 200
+  # remote_user: root
+   tasks:
+     - name: setup
+       yum:
+        name: httpd
+        state: latest
+     - name: start http service
+       service:
+         name: httpd
+         state: started
+         enabled: yes
+     - name: copy html file
+       copy:
+        src: /opt/jenkins/index.html
+        dest: /var/www/html/index.html
+        mode: u=rw,g=r,o=r
+

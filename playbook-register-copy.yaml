@@ -1,0 +1,17 @@
+- hosts: all
+  tasks:
+  - name: Ansible register with_items example
+    shell: "find *.txt"
+    args:
+      chdir: "/opt/"
+    register: with_output
+  - name: Ansible register with_items example
+    shell: "cd /opt/jenkins/"
+    args:
+      chdir: "/opt/"
+    register: with_output
+  - shell: "cp {{ item }} {{item}}_bkp"
+    #args:
+    #  chdir: "/opt/"
+    with_items:
+      - "{{ with_output.stdout_lines}}"
